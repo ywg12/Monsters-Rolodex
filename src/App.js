@@ -1,36 +1,38 @@
 import { Component } from 'react'
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component{
 	constructor(){
 		super();
 		this.state = {
-			name: 'Yashwardhan',
-			company: 'AurigaIT'
+			monsters:[
+			{
+				name: "Ashok",
+				id:1,
+			},
+			{
+				name: "Ramesh",
+				id:2,
+			},
+			{
+				name: "Pakiya",
+				id:3,
+			},
+			{
+				name: "Charan",
+				id:4,
+			}
+		]
 		}
 	}
 	render(){
 		return (
 			<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-				Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-				className="App-link"
-				href="https://reactjs.org"
-				target="_blank"
-				rel="noopener noreferrer"
-				>
-				Yashwardhan Gaur - Full Stack Developer
-				</a>
-				<p>Hi {this.state.name}, I work at {this.state.company}</p>
-				<button onClick={() => {
-					this.setState({name: 'Akshu'})
-				}}>Change Name</button>
-			</header>
+				{
+					this.state.monsters.map((monster)=> {
+					return <div key={monster.id}><h1>{monster.name}</h1></div>
+				})
+				}
 			</div>
 		);
 	}
